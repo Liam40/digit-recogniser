@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: ./docker/streamlit/
@@ -33,5 +31,5 @@ volumes:
 
 networks:
   charity:
-    external:
-      name: charity
+    external: false
+    name: charity

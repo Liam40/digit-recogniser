@@ -38,7 +38,7 @@ model.load_state_dict(torch.load('model.pth', weights_only=True))
 model.eval()
 
 predicted_label = 0
-confidence = 0
+confidence = "0%"
 
 # Create layout with two columns
 col1, col2 = st.columns(2)
@@ -70,6 +70,7 @@ with col1:
         probabilities = F.softmax(output, dim=1)  # Apply softmax to get probabilities
         predicted_label = torch.argmax(probabilities, dim=1).item()  # Get argmax to the prediction
         confidence = probabilities[0][predicted_label].item()  # Get the max probabilities
+        percentage = f"{confidence:.2%}"
 
 
 
@@ -78,7 +79,7 @@ with col1:
 with col2:
     print(predicted_label)
     st.text_input("Prediction", value=predicted_label, key="prediction", disabled=True)
-    st.text_input("Confidence", value=confidence, key="confidence", disabled=True)
+    st.text_input("Confidence", value=percentage, key="confidence", disabled=True)
     # True Label Input (user-provided)
     true_label = st.text_input("True Label", value="0", max_chars=1, key="true_label")
 

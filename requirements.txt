@@ -3,3 +3,8 @@ streamlit_drawable_canvas
 pillow
 psycopg2
 python-dotenv
+torch
+torchvision
+train
+matplotlib
+pandas

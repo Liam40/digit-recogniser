@@ -11,7 +11,7 @@ services:
     env_file:
       - ./.env
     networks:
-      - charity
+      - digit
     depends_on:
       - db
 
@@ -21,17 +21,13 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
-        #environment:
-        #- POSTGRES_USER=hello_django
-        #- POSTGRES_PASSWORD=hello_django
-        #- POSTGRES_DB=hello_django_dev
     networks:
-      - charity
+      - digit
 
 volumes:
   postgres_data:
 
 networks:
-  charity:
+  digit:
     external:
-      name: charity
+      name: digit

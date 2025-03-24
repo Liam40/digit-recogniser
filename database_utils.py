@@ -25,7 +25,6 @@ def initialise_database():
         with conn.cursor() as cursor:
             cursor.execute("SELECT 1 FROM pg_database WHERE datname = 'digit_recogniser'")
             if not cursor.fetchone():
-                print("hello")
                 cursor.execute("CREATE DATABASE digit_recogniser")
 
         # Ensure the table exists in the 'digit-recogniser' database
